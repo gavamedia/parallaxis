@@ -4,7 +4,6 @@
  * @author Christopher Ringrose
  * @copyright (c) 2015 Gavamedia®
  * @version 1.0.0
- * @package System
  *
 **/
 
@@ -42,15 +41,12 @@ function updateParallax() {
 	var parallaxCanvas = document.querySelectorAll('canvas[parallax-distance]');
 	for (var i = 0; i < parallaxCanvas.length; i++) {
 
-
 		// Only redraw if visible
 		var canvasBounds = parallaxCanvas[i].getBoundingClientRect();
 		if (canvasBounds.top < window.innerHeight && (canvasBounds.bottom > 0)) {
-	
 
 			// Center picture vertically
 			var y = (parallaxCanvasContext[i].canvas.height - parallaxImageBuffer[i].height) / 2;
-
 			
 			// Convert distance
 			var distance = Math.min(10, parallaxCanvas[i].getAttribute('parallax-distance'));
@@ -58,17 +54,11 @@ function updateParallax() {
 			// This allows for the user-friendly 1 to 10 distance value
 			distance = Math.max(1, 10 - distance);
 			
-			
 			// Adjust for position on page, based on speed
 			y -= canvasBounds.top / distance;
 
-
 			try {
 				parallaxCanvasContext[i].drawImage(parallaxImageBuffer[i], 0, y);
-
-				// Clear missing parts when image isn't tall enough
-				//if (parallaxImageBuffer[i].height )
-				//parallaxCanvasContext[i].clearRect(0, 20, parallaxImageBuffer[i].width, 10);
 			}
 			catch(ex){}
 
@@ -78,13 +68,6 @@ function updateParallax() {
 	
 	parallaxIsDrawing = false;
 }
-
-
-
-
-
-
-
 
 
 
@@ -100,14 +83,6 @@ function parallaxScrolled() {
 
 
 
-
-
-
-
-
-
-
-
 /*
 *  Update width and height of every parallax-enabled element
 */
@@ -118,13 +93,11 @@ function parallaxPrepareCanvases() {
 		parallaxCanvas[i].width = canvasSize.width.replace(/px/g, '');
 		parallaxCanvas[i].height = canvasSize.height.replace(/px/g, '');
 		
-		
 		// Create buffer to store pre-sized image
 		if (!(i in parallaxImageBuffer)) {
 			parallaxImageBuffer[i] = document.createElement('canvas');
 			parallaxCanvasContext[i] = parallaxCanvas[i].getContext('2d');	
 		}
-
 		
 		// Proportionally scale buffer to new width
 		parallaxImageBuffer[i].width = parallaxCanvas[i].width;
@@ -134,10 +107,8 @@ function parallaxPrepareCanvases() {
 		parallaxImageBuffer[i].getContext('2d').drawImage(parallaxOriginalImage[i], 0, 0, parallaxImageBuffer[i].width, parallaxImageBuffer[i].height);
 	}
 	
-	
 	parallaxIsDrawing = false;
 	onScroll(updateParallax);
-	
 	
 	// Remove original background images	
 	if (numSuccessfullyLoaded >= numToLoad) {
@@ -152,14 +123,6 @@ function parallaxPrepareCanvases() {
 	}
 	
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -187,13 +150,11 @@ function parallaxPrepareCanvases() {
 			parallaxItems[i].appendChild(parallaxCanvas);
 			parallaxItems[i].removeAttribute('parallax-distance');
 
-
 			// Set canvas width/height
 			var canvasSize = window.getComputedStyle(parallaxCanvas);
 			parallaxCanvas.width = canvasSize.width.replace(/px/g, '');
 			parallaxCanvas.height = canvasSize.height.replace(/px/g, '');
 
-			
 			// Determine image
 			var imgSrc = window.getComputedStyle(parallaxItems[i]).backgroundImage.match(/\((.*?)\)/)[1].replace(/('|")/g,'');
 			
