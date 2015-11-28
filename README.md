@@ -1,10 +1,17 @@
 # Parallaxis.js
 Standalone parallax Scrolling in JavaScript. No jQuery required.
 
+##Overview
+A fast, simple to use parallax library. Just add a `parallax-distance` attribute to the element you want to 
 
+
+We utilize the **canvas element**. 
+
+####Why we use the canvas
+Traditional libraries add images or divs to your page, and position them with translate3d. Unfortunately in many designs cases, this can cause flickering, and requires a complex rewrite of your HTML/CSS to accommodate. 
 
 ####Fastest
-Buttery smooth at **60 fps**
+Hardware accelerated and buttery smooth at **60 fps**.
 
 ####Smallest
 Only **3 KB**
