@@ -67,7 +67,7 @@ Parallaxis will automatically use the correct background image.
 
     }
 
-##Including in your project
+##Including in Your Project
 Download the latest build from git-hub, or link to the latest build here:
 
     <script src="https://cdn.rawgit.com/gavamedia/parallaxis/master/parallaxis.min.js"></script>
