@@ -1,5 +1,5 @@
 # Parallaxis
-A fast, powerful parallax background library, written in pure JavaScript. No jQuery required.
+A fast, lightweight parallax background library, written in pure JavaScript. No jQuery required.
 
 ## Overview
 
