@@ -43,14 +43,14 @@ Add a **`parallax-distance`** attribute to any element, with a value between **1
 ## Responsive Example
 Parallaxis will automatically use the correct background image.
 
-**HTML:**
+#### HTML:
 
     <div parallax-distance="4">
       The responsive background image will get the parallax effect.
     </div>
 
 
-**Responsive CSS:**
+#### Responsive CSS:
 
     /* Mobile */
     div {
